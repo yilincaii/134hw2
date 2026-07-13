@@ -3,99 +3,79 @@
 
 <head>
 	<meta charset="utf-8" />
-	<meta name="description" content="Simple demo Web page for CSE 134B" />
-	<meta name="keywords" content="HTML, CSS, JavaScript" />
-	<meta name="author" content="" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>CSE 134B Homework 1 Website</title>
-	<link href="images/favicon.ico" rel="icon" />
-	<link href="styles/main.css" rel="stylesheet" />
-	<script>
-		window.addEventListener('load', function () {
-			let time = window.performance.timing,
-				complete = time.domComplete - time.domLoading;
-			document.getElementById('page-load-info').innerHTML = `<strong>Page Loaded in ${parseInt(complete)}ms
-			 on ${new Date().toLocaleString("en-US")}</strong>`;
-		});
-	</script>
+	<meta name="description" content="Personal portfolio website of Yilin Cai." />
+	<meta name="author" content="Yilin Cai" />
+	<title>Home | Yilin Cai</title>
+	<link rel="stylesheet" href="styles/main.css" />
+
+	<style>
+		intro-quote {
+			display: block;
+			font-style: italic;
+			border-left: 4px solid #209cb5;
+			padding-left: 1em;
+		}
+	</style>
 </head>
 
 <body>
 	<header>
-		<h1>Yilin Cai's Website</h1>
-		
-		<section id="user-info-component">
-			<div id="user-info" style="display: none;">
-				<output id="name-info">&nbsp;</output>
-				<br />
-				<output id="major-info">&nbsp;</output>
-				<hr />
-				<br />
-				<!-- Inline Javascript Handlers used here for demonstration only -->
-				<section class="intro-text">
-					<label>My name is <input id="name-input" type="text" autocomplete="name" autofocus maxlength="30" placeholder="Your Name"></label>
-					<br />
-					<label>My major is <input id="major-input" type="text" maxlength="30" placeholder="Your Major"></label>
-				</section>
-	
-				<button onclick="window.update();">Update</button>
-			</div>
-			<script>
-				document.getElementById('user-info').style.display = 'block';
-			</script>
-			<noscript class="error">Error: JavaScript is disabled or blocked.</noscript>
-		</section>
-
-
-		<section id="page-load-component">
-			<div id="load-info" style="display: none;">
-				<output id="page-load-info">Measuring...</output>
-			</div>
-			<script>
-				document.getElementById('load-info').style.display = 'block';
-			</script>
-			<noscript class="error">Error: JavaScript required for page timing measurement </noscript>
-		</section>
+		<nav>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="project.html">Project</a></li>
+				<li><a href="experience.html">Experience</a></li>
+				<li><a href="notes.html">Notes</a></li>
+				<li><a href="aboutme.html">About Me</a></li>
+				<li><a href="experiments.html">Experiments</a></li>
+			</ul>
+		</nav>
+		<h1>Yilin Cai</h1>
+		<intro-quote>
+			<p>&ldquo;I build things at the intersection of data and design.&rdquo;</p>
+		</intro-quote>
 	</header>
 
 	<main>
-		<h2>UCSD Images</h2>
-		<section class="img">
-			<img src="images/bear.png" alt="Warren Bear" height="430" width="700" />
-			<img src="images/triton.jpg" alt="Triton" height="430" width="700" />
-			<a href="https://ucsd.edu" target="_blank"><img src="images/ucsd.gif" alt="UCSD" height="177"
-				width="700"></a>
-			<br />
-			<section id="links">
-				<h2>Useful Links</h2>
-				<ul>
-					<li><a href="http://tritonlink.ucsd.edu">TritonLink</a></li>
-					<li><a href="http://canvas.ucsd.edu">Canvas</a></li>
-					<li><a href="http://w3.org">W3</a></li>
-				</ul>
-			</section>
+		<h2>Explore</h2>
 
-		<section class="video">
-			<h2>UCSD Promo Video</h2>
-			<video controls height="393" width="700">
-				<source src="videos/videoplayback.mp4" type="video/mp4" />
-				<div class="error">Your browser does not support the video tag.</div>
-			</video>
-		</section>
-			<br />
+		<article>
+			<h3><a href="project.html">Project</a></h3>
+			<p>My projects and a Kaggle competition.</p>
+		</article>
 
-		</section>
+		<article>
+			<h3><a href="experience.html">Experience</a></h3>
+			<p>Education and work history.</p>
+		</article>
+
+		<article>
+			<h3><a href="notes.html">Notes</a></h3>
+			<p>Notes on software engineering, algorithms, and web development.</p>
+		</article>
+
+		<article>
+			<h3><a href="about.html">About Me</a></h3>
+			<p>Introduction, career goals, interests, and contact info.</p>
+		</article>
 	</main>
 
 	<footer>
-		<hr/>
-		<p>💯This page was made with &hearts; by Yilin Cai 💯</p>
+		<p>&copy; 2026 Yilin Cai</p>
 	</footer>
-	<script type="module">
-		import { update } from './scripts/main.js';
-		window.update = update;
+
+	<script src="scripts/analytics-placeholder.js" defer></script>
+
+	<!-- Custom element #2: prints "Hello World!" to the console-->
+	<script>
+		class HelloWorld extends HTMLElement {
+			connectedCallback() {
+				console.log('Hello World!');
+			}
+		}
+		customElements.define('hello-world', HelloWorld);
 	</script>
-	<script nomodule src="scripts/main-es5.js"></script>
+	<hello-world></hello-world>
 </body>
 
 </html>
