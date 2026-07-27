@@ -1,0 +1,338 @@
+/* ==========================================================
+   Neo-Chinese Aesthetic System
+   Reference: https://en.wikipedia.org/wiki/Neo-Chinese_style
+   A contemporary reinterpretation of traditional Chinese design motifs
+   (lattice windows, ink-wash landscapes, restrained ornament) rendered
+   through a soft, minimal, "guochao" web sensibility.
+   ================================ */
+
+/* 
+   1. Design tokens
+   ------------------------------------------- */
+:root {
+  /* Color -- 雨水 (Yushui) palette, primary */
+  --color-paper: #F9D3E3;
+  --color-blush: #ECB0C1;
+  --color-rose:  #DD7694;
+  --color-plum:  #A76283;
+
+  /* Color -(green accent), used sparingly */
+  --color-mist:  #D6EAE3;
+  --color-sage:  #9BBBAC;
+  --color-jade:  #7FA493;
+
+  /* Color -- text ink, added for contrast  */
+  --color-ink:   #3A2A30;
+  --color-ink-soft: #6B4E58;
+  --color-surface: #FFFBFC;
+
+  /* Color accent red, added per Neo-Chinese convention of a small,
+     low-saturation red used only as a pop of accent, never a large fill */
+  --color-vermilion: #B8503F;
+
+  --font-display: "Noto Serif SC", serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --text-xs:   clamp(0.75rem, 0.72rem + 0.15vw, 0.8125rem);
+  --text-sm:   clamp(0.875rem, 0.84rem + 0.18vw, 0.9375rem);
+  --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.0625rem);
+  --text-lg:   clamp(1.125rem, 1.05rem + 0.35vw, 1.3125rem);
+  --text-xl:   clamp(1.5rem, 1.35rem + 0.75vw, 1.9375rem);
+  --text-2xl:  clamp(1.875rem, 1.6rem + 1.35vw, 2.5rem);
+  --text-3xl:  clamp(2.25rem, 1.85rem + 2vw, 3.25rem);
+
+  --space-1: 0.5rem;
+  --space-2: 0.875rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: 4rem;
+  --space-6: 6rem;
+
+
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --border-hairline: 1px solid var(--color-rose);
+  --shadow-card: 0 2px 10px rgb(167 98 131 / 0.16);
+  --shadow-lifted: 0 10px 30px rgb(167 98 131 / 0.24);
+
+
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration: 200ms;
+
+  --content-width: 42rem;
+}
+
+/* ---------------------------------
+   2. Reset (scoped to this page only -- this stylesheet is not shared)
+   --------------------------------------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.65;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* 
+   3. Typography
+    */
+h1, h2, h3 {
+  font-family: var(--font-display);
+  color: var(--color-ink);
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0 0 var(--space-2);
+}
+
+h1 { font-size: var(--text-3xl); }
+h2 { font-size: var(--text-2xl); }
+h3 { font-size: var(--text-xl); color: var(--color-plum); }
+
+p {
+  margin: 0 0 var(--space-2);
+  max-width: 68ch;
+}
+
+a {
+  color: var(--color-plum);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+}
+
+a:hover {
+  color: var(--color-rose);
+}
+
+strong { color: var(--color-plum); }
+
+/* 
+   4. Page chrome: header / nav / footer
+    */
+header {
+  padding: var(--space-3) var(--space-4) var(--space-4);
+  background: var(--color-surface);
+  border-bottom: var(--border-hairline);
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin: 0 0 var(--space-3);
+  padding: 0;
+  font-size: var(--text-sm);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+header nav a {
+  color: var(--color-ink-soft);
+  text-decoration: none;
+  padding: 0.2em 0;
+  border-bottom: 2px solid transparent;
+}
+
+header nav a:hover {
+  color: var(--color-rose);
+  border-bottom-color: var(--color-rose);
+}
+
+header h1 {
+  margin: 0;
+}
+
+footer {
+  padding: var(--space-4);
+  text-align: center;
+  font-size: var(--text-sm);
+  color: var(--color-ink-soft);
+  background: var(--color-surface);
+  border-top: var(--border-hairline);
+}
+
+/* 
+   5. Main content sections + lattice divider (signature element)
+    */
+main {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: var(--space-5) var(--space-4);
+}
+
+main > section {
+  padding-block: var(--space-5);
+  padding-inline: var(--space-4);
+  margin-inline: calc(var(--space-4) * -1);
+  border-radius: var(--radius-md);
+  position: relative;
+}
+
+/* Each major section gets its own soft gradient "color block" rather
+   than one flat wash across the whole page. */
+#career-goals {
+  background: var(--color-surface);
+}
+
+#interests {
+  background: linear-gradient(160deg, var(--color-blush), var(--color-mist));
+}
+
+#interests li:last-child {
+  border-left: 3px solid var(--color-vermilion);
+  padding-left: var(--space-2);
+  list-style: none;
+  margin-left: calc(-1 * var(--space-2) - 3px);
+}
+
+#skills {
+  background: linear-gradient(160deg, var(--color-mist), var(--color-surface));
+}
+
+#gallery {
+  background: linear-gradient(160deg, var(--color-paper), var(--color-blush));
+}
+
+#art {
+  background: linear-gradient(180deg, var(--color-mist), var(--color-sage) 140%);
+}
+
+#art h2, #art h3 {
+  color: var(--color-ink);
+}
+
+#art h3 {
+  color: #3E5A50;
+}
+
+#food {
+  background: linear-gradient(160deg, var(--color-paper), #F6E4D8);
+  border: 1px solid var(--color-vermilion);
+}
+
+#food figure {
+  position: relative;
+}
+
+#contact-me {
+  background: linear-gradient(160deg, var(--color-mist), var(--color-surface));
+}
+
+#contact-me p strong {
+  color: var(--color-vermilion);
+}
+
+/* lattice divider */
+main > section + section::before {
+  content: "";
+  display: block;
+  height: 1.25rem;
+  margin-bottom: var(--space-4);
+  background-image:
+    repeating-linear-gradient(90deg, var(--color-rose) 0 2px, transparent 2px 22px),
+    repeating-linear-gradient(0deg, var(--color-rose) 0 2px, transparent 2px 22px);
+  background-size: 100% 100%;
+  opacity: 0.35;
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 15%, black 85%, transparent);
+          mask-image: linear-gradient(90deg, transparent, black 15%, black 85%, transparent);
+}
+
+/* Entering/leaving the green Art zone: the lattice switches to jade */
+#art::before,
+#food::before {
+  background-image:
+    repeating-linear-gradient(90deg, var(--color-jade) 0 2px, transparent 2px 22px),
+    repeating-linear-gradient(0deg, var(--color-jade) 0 2px, transparent 2px 22px);
+}
+
+/* Nested Art sub-sections use a lighter rule instead of the full lattice,
+   so the page doesn't repeat the "loud" element too often. */
+#art section + section {
+  border-top: 1px dashed var(--color-blush);
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+}
+
+#art section + section::before {
+  content: none;
+}
+
+/* --------------------------------------------------------------------------
+   6. Introduction: photographic background treatment
+   -------------------------------------------------------------------------- */
+#introduction {
+  padding: var(--space-5) var(--space-4);
+  margin-inline: calc(var(--space-4) * -1);
+  padding-inline: var(--space-4);
+  border-radius: var(--radius-md);
+  background-image:
+    linear-gradient(160deg, rgb(249 211 227 / 0.88), rgb(167 98 131 / 0.72)),
+    url("../images/Chinastyle.avif");
+  background-size: cover;
+  background-position: center;
+  color: var(--color-surface);
+}
+
+#introduction h2,
+#introduction strong {
+  color: var(--color-surface);
+}
+
+#introduction img[alt^="Selfie"] {
+  width: 128px;
+  height: 128px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--color-surface);
+  box-shadow: var(--shadow-lifted);
+  margin-bottom: var(--space-3);
+}
+
+#introduction p {
+  max-width: 60ch;
+}
+
+/* --------------------------------------------------------------------------
+   7. Skills: progress bars
+   -------------------------------------------------------------------------- */
+#skills p {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  max-width: none;
+}
+
+progress {
+  flex: 1;
+  height: 8px;
+  appearance: none;
+  border: none;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+progress::-webkit-progress-bar {
+  background: var(--color-blush);
+  border-radius: 4px;
+}
+
+progress::-webkit-progress-value {
+  background: var(--color-rose);
+  border-radius: 4px;
+}
+
+progress::-moz-progress-bar {
+  background: var(--color-rose);
+  border-radius: 4px;
+}
