@@ -282,6 +282,7 @@ progress::-moz-progress-bar { background: var(--color-rose); border-radius: 4px;
 /*Image viewer dialog ---- */
 dialog {
   border: none;
+  position: static;
   border-radius: var(--radius-md);
   padding: var(--space-4);
   background: var(--color-surface);

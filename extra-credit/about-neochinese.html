@@ -243,10 +243,6 @@
 					<button type="submit">Send</button>
 				</fieldset>
 			</form>
-
-			
-		</section>
-        <section>
             <dialog open>
                 <h2>Current Opportunity Status</h2>
 
@@ -259,17 +255,16 @@
                     <a href="../resume.pdf">View my resume (PDF)</a>
                 </p>
             </dialog>
-        </section>
+			<dialog id="image-viewer" aria-label="Image viewer">
+                <button type="button" id="viewer-close" aria-label="Close image viewer">&times;</button>
+                <button type="button" id="viewer-prev" aria-label="Previous image">&lsaquo;</button>
+                <img id="viewer-image" src="" alt="">
+                <button type="button" id="viewer-next" aria-label="Next image">&rsaquo;</button>
+                <div id="viewer-dots" role="tablist" aria-label="Image navigation"></div>
+            </dialog>
+		</section>
+        
 	</main>
-
-	<dialog id="image-viewer" aria-label="Image viewer">
-		<button type="button" id="viewer-close" aria-label="Close image viewer">&times;</button>
-		<button type="button" id="viewer-prev" aria-label="Previous image">&lsaquo;</button>
-		<img id="viewer-image" src="" alt="">
-		<button type="button" id="viewer-next" aria-label="Next image">&rsaquo;</button>
-		<div id="viewer-dots" role="tablist" aria-label="Image navigation"></div>
-	</dialog>
-
 	<footer>
 		<p>&copy; 2026 Yilin Cai</p>
 	</footer>
