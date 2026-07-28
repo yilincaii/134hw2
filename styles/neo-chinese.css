@@ -152,7 +152,22 @@ main > section {
 }
 
 #career-goals { background: var(--color-surface); }
+#career-goals { padding-right: 8rem; }
 
+#career-goals::after {
+  content: "";
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  width: 5.5rem;
+  height: 7rem;
+  border-radius: var(--radius-md);
+  background-image: url("../images/Clamp.avif");
+  background-size: cover;
+  background-position: center;
+  border: 3px solid var(--color-mist);
+  box-shadow: var(--shadow-card);
+}
 #interests { background: linear-gradient(160deg, var(--color-blush), var(--color-mist)); }
 
 #interests li:last-child {
@@ -165,18 +180,71 @@ main > section {
 #skills { background: linear-gradient(160deg, var(--color-mist), var(--color-surface)); }
 
 #gallery { background: linear-gradient(160deg, var(--color-paper), var(--color-blush)); }
+#gallery { padding-right: 7rem; }
 
+#gallery::after {
+  content: "";
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  width: 5.5rem;
+  height: 7rem;
+  border-radius: var(--radius-md);
+  background-image: url("../images/Cbuild2.avif");
+  background-size: cover;
+  background-position: center;
+  border: 3px solid var(--color-blush);
+  box-shadow: var(--shadow-card);
+}
 #art { background: linear-gradient(180deg, var(--color-mist), var(--color-sage) 140%); }
 #art h3 { color: #3E5A50; }
+#art { padding-right: 7rem; }
+
+#art::after {
+  content: "";
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  width: 5.5rem;
+  height: 7rem;
+  border-radius: var(--radius-md);
+  background-image: url("../images/Cbird.jpg");
+  background-size: cover;
+  background-position: center;
+  border: 3px solid var(--color-sage);
+  box-shadow: var(--shadow-card);
+}
+
+
 #food {
   background: linear-gradient(160deg, var(--color-paper), #F6E4D8);
   border: 1px solid var(--color-vermilion);
 }
+#food {
+  padding-right: 7rem;
+  padding-bottom: 6rem;
+}
+
+#food::after {
+  content: "";
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  width: 5.5rem;
+  height: 7rem;
+  border-radius: var(--radius-md);
+  background-image: url("../images/Cfood.png");
+  background-size: cover;
+  background-position: center;
+  border: 3px solid var(--color-vermilion);
+  box-shadow: var(--shadow-card);
+}
+
 
 #contact-me { background: linear-gradient(160deg, var(--color-mist), var(--color-surface)); }
 #contact-me p strong { color: var(--color-vermilion); }
 
-/* Lattice window divider between major sections -- pure CSS, no images */
+/* Lattice window divider between major sections */
 main > section + section::before {
   content: "";
   display: block;
@@ -213,7 +281,22 @@ progress { flex: 1; height: 8px; border: none; border-radius: 4px; }
 progress::-webkit-progress-bar { background: var(--color-blush); border-radius: 4px; }
 progress::-webkit-progress-value { background: var(--color-rose); border-radius: 4px; }
 progress::-moz-progress-bar { background: var(--color-rose); border-radius: 4px; }
+#skills { padding-right: 7rem; }
 
+#skills::after {
+  content: "";
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  width: 5rem;
+  height: 7rem;
+  border-radius: var(--radius-md);
+  background-image: url("../images/Cbuild.jpg");
+  background-size: cover;
+  background-position: center;
+  border: 3px solid var(--color-blush);
+  box-shadow: var(--shadow-card);
+}
 /*6. Thumbnail carousels: one image visible at a time  */
 .thumb-carousel {
   display: flex;
@@ -418,7 +501,7 @@ textarea:focus-visible, .thumb-button:focus-visible {
   outline-offset: 2px;
 }
 
-/* 10. Motion (respects prefers-reduced-motion) ---- */
+/* 10. Motion ---- */
 @media (prefers-reduced-motion: no-preference) {
   .thumb-button, header nav a, button[type="submit"],
   .carousel-prev, .carousel-next, #viewer-prev, #viewer-next {
@@ -427,7 +510,7 @@ textarea:focus-visible, .thumb-button:focus-visible {
   }
   .thumb-row { scroll-behavior: smooth; }
 }
-/* 11. Responsive: usable down to ~375px, no page-level h-scroll ---- */
+/* 11. Responsive: usable down to ~375px--- */
 @media (max-width: 40rem) {
   main { padding: var(--space-3) var(--space-2); }
   main > section {
